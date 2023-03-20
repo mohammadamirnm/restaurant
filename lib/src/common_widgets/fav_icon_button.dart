@@ -21,6 +21,7 @@ class FavIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      key: const ValueKey<String>('fav_icon_button'),
       icon: Icon(_icon),
       onPressed: onPressed,
     );
