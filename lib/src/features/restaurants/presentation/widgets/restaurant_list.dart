@@ -12,8 +12,8 @@ class RestaurantList extends StatelessWidget {
   });
 
   final List<Restaurant> restaurants;
-  final Future<void> Function(String id) addFavorite;
-  final Future<void> Function(String id) removeFavorite;
+  final Future<void> Function(Restaurant restaurant) addFavorite;
+  final Future<void> Function(Restaurant restaurant) removeFavorite;
 
   @override
   Widget build(BuildContext context) {

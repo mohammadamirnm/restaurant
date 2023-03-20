@@ -14,8 +14,8 @@ class RestaurantTile extends StatefulWidget {
   });
 
   final Restaurant restaurant;
-  final Future<void> Function(String id) addFavorite;
-  final Future<void> Function(String id) removeFavorite;
+  final Future<void> Function(Restaurant restaurant) addFavorite;
+  final Future<void> Function(Restaurant restaurant) removeFavorite;
 
   @override
   State<RestaurantTile> createState() => _RestaurantTileState();
@@ -25,14 +25,12 @@ class _RestaurantTileState extends State<RestaurantTile> {
   Future<void> onFavPressed() async {
     if (widget.restaurant.isFav) {
       setState(() {
-        widget.restaurant.isFav = false;
+        widget.removeFavorite(widget.restaurant);
       });
-      await widget.removeFavorite(widget.restaurant.id);
     } else {
       setState(() {
-        widget.restaurant.isFav = true;
+        widget.addFavorite(widget.restaurant);
       });
-      await widget.addFavorite(widget.restaurant.id);
     }
   }
 

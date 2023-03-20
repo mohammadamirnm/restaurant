@@ -28,13 +28,17 @@ class RestaurantCubit extends Cubit<RestaurantState> {
         orElse: () {});
   }
 
-  Future<void> addFavorite(String id) async {
-    _favRestaurantIds.add(id);
+  Future<void> addFavorite(Restaurant restaurant) async {
+    restaurant.isFav = true;
+
+    _favRestaurantIds.add(restaurant.id);
     await _restaurantRepository.setFavRestaurantIds(_favRestaurantIds);
   }
 
-  Future<void> removeFavorite(String id) async {
-    _favRestaurantIds.remove(id);
+  Future<void> removeFavorite(Restaurant restaurant) async {
+    restaurant.isFav = false;
+
+    _favRestaurantIds.remove(restaurant.id);
     await _restaurantRepository.setFavRestaurantIds(_favRestaurantIds);
   }
 
