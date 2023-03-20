@@ -1,0 +1,7 @@
+{
+    "label_network_failure": "Please check your network and try again.",
+    "label_location_not_found_failure": "Location not found failure.",
+    "label_failed_to_load_restaurants": "Failed to load restaurants.",
+    "label_retry": "Retry",
+    "label_get_location": "Get location"
+}
